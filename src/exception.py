@@ -1,5 +1,6 @@
 import sys
 
+
 def error_message(error, detail:sys): 
     _,_,exc_tb = detail.exc_info() #this brings the info about the most recent exception in a tuple (exc_type, exc_value, exc_traceback. the traceback is the only thing we need right now)
     file_name = exc_tb.tb_frame.f_code.co_filename #tb_frame represent the frame at the time of the exception, aand the co_filename gets the name of the file name where the most recent exception occcured
