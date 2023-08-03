@@ -5,6 +5,8 @@ from src.logger import logging
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from dataclasses import dataclass
+from src.components.data_transformation import DataTransformation
+from src.components.data_transformation import DataTransformConfig
 
 @dataclass
 class DataIngestionConfig: #this will confgure the path where the training and testing data ll need to be saved in
@@ -42,4 +44,7 @@ class DataIngestion:
 
 if __name__ == "__main__":
     obj = DataIngestion() #this instantitates the dataingestion class
-    obj.initiate_data_ingestion() #this will create the files and directories and logs
+    training_path, testing_path = obj.initiate_data_ingestion() #this will create the files and directories and logs
+
+    data_transformation = DataTransformation()#this instantiates the datatransformation class
+    data_transformation.initiate_data_transform(training_path, testing_path)#this will use the training path and testing path from the ingestion part, and will initiate the data transformation phase
