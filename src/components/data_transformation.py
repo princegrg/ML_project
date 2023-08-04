@@ -99,7 +99,7 @@ class DataTransformation:
             save_object(
                 file_path = self.data_transform_config.preprocess_path,
                 obj_to_save = preprocessors
-            )
+            ) #this saves the preprocessor after the training and testing input data have been fitted
 
             return (
                 train_array,
